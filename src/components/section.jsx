@@ -10,16 +10,19 @@ const Section = ({ title, action, actionType, info, children }) => {
     add: "ActionAddSvg",
     record: "ActionRecordSvg",
     mic: "ActionMicSvg",
+    correction: "ActionCorrectionSvg",
   }[actionType];
 
   return (
     <View style={styles.section}>
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>{title}</Text>
-        <TouchableOpacity style={styles.sectionAction}>
-          <SvgIcon name={actionIcon} fill={globalColors.grade7} />
-          <Text style={styles.sectionActionText}>{action}</Text>
-        </TouchableOpacity>
+        {action && (
+          <TouchableOpacity style={styles.sectionAction}>
+            <SvgIcon name={actionIcon} fill={globalColors.grade7} />
+            <Text style={styles.sectionActionText}>{action}</Text>
+          </TouchableOpacity>
+        )}
       </View>
       {info && (
         <View style={styles.sectionInfo}>
