@@ -55,7 +55,7 @@ const Voice = ({ icon, name, date }) => {
           <SvgIcon name="ActionEditSvg" fill={globalColors.grade7} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.voiceAction}>
-          <SvgIcon name="ActionDelete20Svg" fill={globalColors.grade7} />
+          <SvgIcon name="ActionDeleteSvg" fill={globalColors.grade7} />
         </TouchableOpacity>
       </View>
     </View>
