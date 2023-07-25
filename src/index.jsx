@@ -28,7 +28,7 @@ const App = () => {
       theme={{
         dark: false,
         colors: {
-          primary: globalColors.brand,
+          primary: globalColors.active,
           background: globalColors.grade1,
           card: globalColors.grade1,
           border: globalColors.grade1,

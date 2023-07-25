@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Pressable,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -23,34 +17,27 @@ import Speak from "./speak";
 
 const Stack = createBottomTabNavigator();
 const IndexNavigator = () => {
-  const insets = useSafeAreaInsets();
-
   const [currentTab, setCurrentTab] = React.useState("Listen");
 
   const pageConfig = {
     Listen: {
       name: "듣기",
-      description: "하드웨어를 통해 주변 소리를 들어요.",
       component: Listen,
     },
     Speak: {
       name: "말하기",
-      description: "효과적으로 발음을 교정해요.",
       component: Speak,
     },
     Community: {
       name: "커뮤니티",
-      description: "청각장애인을 위한 정보를 공유해요.",
       component: Community,
     },
     Automation: {
       name: "자동화",
-      description: "더욱 손쉽게 소통할 수 있는 기능을 제공해요.",
       component: Automation,
     },
     Settings: {
       name: "설정",
-      description: "장치를 추가하거나 각종 설정을 변경해요.",
       component: Settings,
     },
   };
@@ -61,11 +48,9 @@ const IndexNavigator = () => {
       style={[
         globalStyles.container,
         {
-          paddingTop: insets.top,
           backgroundColor: globalColors.grade1,
         },
       ]}>
-      <Header pageConfig={pageConfig} currentTab={currentTab} />
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -92,44 +77,6 @@ const IndexNavigator = () => {
     </View>
   );
 };
-
-const Header = React.memo(({ pageConfig, currentTab }) => {
-  return (
-    <View style={headerStyles.header}>
-      <View style={headerStyles.row}>
-        <SvgIcon name={`Header${currentTab}Svg`} fill={globalColors.grade9} />
-        <Text style={headerStyles.title}>{pageConfig[currentTab].name}</Text>
-      </View>
-      <Text style={headerStyles.description}>
-        {pageConfig[currentTab].description}
-      </Text>
-    </View>
-  );
-});
-
-const headerStyles = StyleSheet.create({
-  header: {
-    paddingVertical: 28,
-    paddingHorizontal: 24,
-    paddingBottom: 40,
-    gap: 8,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-  },
-  title: {
-    fontSize: 28,
-    fontFamily: "Pretendard-SemiBold",
-    color: globalColors.grade9,
-  },
-  description: {
-    fontSize: 16,
-    fontFamily: "Pretendard-Medium",
-    color: globalColors.grade7,
-  },
-});
 
 const Navbar = ({
   pageConfig,
