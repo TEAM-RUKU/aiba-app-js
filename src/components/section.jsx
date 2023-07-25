@@ -5,9 +5,11 @@ import { globalColors } from "@app/res/styles";
 
 import SvgIcon from "./svgicon";
 
-const Section = ({ title, action, actionType, children }) => {
+const Section = ({ title, action, actionType, info, children }) => {
   const actionIcon = {
     add: "ActionAddSvg",
+    record: "ActionRecordSvg",
+    mic: "ActionMicSvg",
   }[actionType];
 
   return (
@@ -19,6 +21,12 @@ const Section = ({ title, action, actionType, children }) => {
           <Text style={styles.sectionActionText}>{action}</Text>
         </TouchableOpacity>
       </View>
+      {info && (
+        <View style={styles.sectionInfo}>
+          <SvgIcon name="SectionInfoSvg" fill={globalColors.grade5} />
+          <Text style={styles.sectionInfoText}>{info}</Text>
+        </View>
+      )}
       <View style={styles.sectionList}>{children}</View>
     </View>
   );
@@ -51,6 +59,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Pretendard-Medium",
     color: globalColors.grade7,
+  },
+  sectionInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    paddingHorizontal: 4,
+    marginTop: -10,
+  },
+  sectionInfoText: {
+    fontSize: 14,
+    fontFamily: "Pretendard-Medium",
+    color: globalColors.grade5,
   },
   sectionList: {
     gap: 12,
