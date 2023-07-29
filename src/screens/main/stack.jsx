@@ -10,10 +10,10 @@ import { globalStyles, globalColors } from "@app/res/styles";
 import { log } from "@app/utils/logging";
 
 import Automation from "./automation";
-import Community from "./community";
 import Listen from "./listen";
 import Settings from "./settings";
-import Speak from "./speak";
+// import Community from "./community";
+// import Speak from "./speak";
 
 const Stack = createBottomTabNavigator();
 const IndexNavigator = () => {
@@ -24,14 +24,14 @@ const IndexNavigator = () => {
       name: "듣기",
       component: Listen,
     },
-    Speak: {
-      name: "말하기",
-      component: Speak,
-    },
-    Community: {
-      name: "커뮤니티",
-      component: Community,
-    },
+    // Speak: {
+    //   name: "말하기",
+    //   component: Speak,
+    // },
+    // Community: {
+    //   name: "커뮤니티",
+    //   component: Community,
+    // },
     Automation: {
       name: "자동화",
       component: Automation,
