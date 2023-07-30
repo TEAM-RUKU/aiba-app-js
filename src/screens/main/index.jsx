@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { log } from "@app/utils/logging";
 
+import ListenStack from "./listen/stack";
 import IndexStack from "./stack";
 
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ const Kinetic = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Index" component={IndexStack} />
+      <Stack.Screen name="ListenStack" component={ListenStack} />
     </Stack.Navigator>
   );
 };

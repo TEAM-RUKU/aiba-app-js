@@ -1,10 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 import { SvgIcon, Page, Section } from "@app/components";
 import { globalColors } from "@app/res/styles";
 
 const Listen = () => {
+  const navigation = useNavigation();
+
   return (
     <Page currentTab="Listen">
       <Section
@@ -18,6 +22,12 @@ const Listen = () => {
         title="주변 소리 보기"
         action="기록된 소리 보기"
         actionType="mic"
+        onAction={() => {
+          navigation.navigate("ListenStack", {
+            screen: "Sound",
+          });
+          console.log("hi");
+        }}
         info="소리를 눌러가며 전환할 수 있어요">
         <Near />
       </Section>
@@ -25,6 +35,12 @@ const Listen = () => {
         title="대화 기록"
         action="전체 대화 보기"
         actionType="record"
+        onAction={() => {
+          navigation.navigate("ListenStack", {
+            screen: "Conversation",
+          });
+          console.log("hi");
+        }}
         info="장치에서 목소리가 들린 경우 자동으로 기록합니다">
         <Record text="안녕하세요" />
         <Record text="혹시 최애의 아이 보셨나요" />

@@ -5,7 +5,7 @@ import { globalColors } from "@app/res/styles";
 
 import SvgIcon from "./svgicon";
 
-const Section = ({ title, action, actionType, info, children }) => {
+const Section = ({ title, action, actionType, onAction, info, children }) => {
   const actionIcon = {
     add: "ActionAddSvg",
     record: "ActionRecordSvg",
@@ -18,7 +18,7 @@ const Section = ({ title, action, actionType, info, children }) => {
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>{title}</Text>
         {action && (
-          <TouchableOpacity style={styles.sectionAction}>
+          <TouchableOpacity style={styles.sectionAction} onPress={onAction}>
             <SvgIcon name={actionIcon} fill={globalColors.grade7} />
             <Text style={styles.sectionActionText}>{action}</Text>
           </TouchableOpacity>
